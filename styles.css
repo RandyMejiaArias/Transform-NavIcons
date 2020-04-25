@@ -2,37 +2,36 @@
 :root{
   --duration: 0.5s;
   --size: 100%;
-  --togled-size: 0.75;
 }
 
 .navicon-button {
   display: inline-block;
   position: relative;
   padding: 2.0625rem 1.5rem;
-  transition: var(--duration)/2;
+  transition: 0.25s;
   cursor: pointer;
   user-select: none;
   opacity: 0.8;
 }
 
 .navicon-button .navicon::before, .navicon-button .navicon::after{
-  transition: var(--duration)/2;
+  transition: 0.25s;
 } 
 
-.navicon:hover{
-  transition: var(--duration);
+.navicon-button:hover{
+  transition: 0.5s;
   opacity: 1;
 }
 
-.navicon:hover .navicon::before, .navicon:hover .navicon::after{
-  transition: var(--duration)/2;
+.navicon-button:hover .navicon::before, .navicon-button:hover .navicon::after{
+  transition: 0.25s;
 }
 
-.navicon:hover .navicon::before{
+.navicon-button:hover .navicon::before{
   top: 0.825rem;
 }
 
-.navicon:hover .navicon::after{
+.navicon-button:hover .navicon::after{
   top: -0.825rem;
 }
 
@@ -41,7 +40,7 @@
   width: 2.5em;
   height: .3125rem;
   background: white;
-  transition: var(--duration);
+  transition: 0.5s;
   border-radius: 2.5rem;
 }
 
@@ -53,7 +52,7 @@
     background: white;
 		position: absolute;
 		z-index: -1;
-		transition: var(--duration) var(--duration)/2;
+		transition: 0.5s 0.25s;
 		border-radius: 1rem;
 }
 
@@ -70,12 +69,12 @@
 }
 
 .open .navicon:before, .open .navicon:after {
-	transition: var(--duration);
+	transition: 0.5s;
 }
 
 /* Minus */
 .open {
-	transform: scale(var(--togled-size));
+	transform: scale(0.75);
 }
 
 /* Arrows */
@@ -90,11 +89,11 @@
 
 .open.left-arrow .navicon::after, .open.right-arrow .navicon::after, .open.upper-arrow .navicon::after{
   transform: rotate(-35deg);
-  transform-origin: left top;
+  transform-origin: left bottom;
 }
 
 .open.upper-arrow {
-	transform: scale(var(--togled-size)) rotate(90deg);
+	transform: scale(0.75) rotate(90deg);
 }
 
 .open.right-arrow .navicon::before{
@@ -121,7 +120,7 @@
 }
 
 .open.plus {
-	transform: scale(var(--togled-size)) rotate(45deg);
+	transform: scale(0.75) rotate(45deg);
 }
 
 
@@ -152,4 +151,8 @@ nav {
   background: black;
   border-radius: .5rem .5rem 0 0;
   padding: 0 1rem;
+}
+
+section *, section *:before, section *:after {
+  transform: translate3d(0, 0, 0);
 }
